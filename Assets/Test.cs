@@ -6,7 +6,7 @@ public class Boss
 {
     private int hp = 100;          // 体力
     private int power = 25; // 攻撃力
-    private int mp = 53; //
+    private int mp = 53; //魔法攻撃用
 
     // 攻撃用の関数
     public void Attack()
@@ -27,14 +27,13 @@ public class Boss
     {
         if (mp >= 5)
         {
-            Debug.Log("魔法攻撃をした。残りMPは" + mp + "。");
             this.mp -= 5;
+            Debug.Log("魔法攻撃をした。残りMPは" + mp + "。");
         }
         else
         {
             Debug.Log("MPが足りないため、魔法が使えない。");
-        }
-       
+        }      
     }
 }    
 
@@ -54,21 +53,24 @@ public class Test : MonoBehaviour
         {
             Debug.Log(array[i]);
         }
+
         // Bossクラスの変数を宣言してインスタンスを代入
         Boss lastboss = new Boss();
 
         // 攻撃用の関数を呼び出す
         lastboss.Attack();
+
         // 防御用の関数を呼び出す
         lastboss.Defence(3);
-        // 魔法攻撃用の関数を呼び出す
-        lastboss.Magic();
-
+       
         //魔法攻撃用の関数を10回呼び出す
         for (int i = 0; i < 10; i++)
         {
             lastboss.Magic();
         }
+
+        // 魔法攻撃用の関数を呼び出す
+        lastboss.Magic();
     }
 
     // Update is called once per frame
